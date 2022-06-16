@@ -11,22 +11,81 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
             integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
             crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
+            <!-- Google Fonts Import -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Oleo+Script:wght@400;700&display=swap"
+    rel="stylesheet">
 <body>
-    <nav class="navbar has-background-link-dark" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <a class="navbar-item" href="https://bulma.io">
-                <img src="https://bulma.io/images/bulma-logo.png"
-                    alt="Bulma: Free, open source, and modern CSS framework based on Flexbox" width="112" height="28">
-            </a>
-    
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-        </div>
+
+
+    <nav class="navbar has-background-info navbar-menu" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand navbar-start">
+            <img src="./ScrolloDeck.svg" alt="ScrolloDeck Logo" width="256px">
+            <!-- <a class="navbar-item is-size-3" href="">
+                <h1 style="font-family: 'Nunito', sans-serif; font-style: italic; font-weight: 600;"><i class="fa-solid fa-scroll mr-1"></i>ScrolloDeck</h1>
+            </a> -->
+        <div class="navbar-end has-text-right">
+            <div class="navbar-item navbar-end">
+                <div class="buttons">
+                    <a class="button is-success">
+                        <strong>Sign up</strong>
+                    </a>
+                    <a class="button is-danger">
+                        Log in
+                    </a>
+                    <button class="button is-link">Add Your Games</button>
+            </div>
     </nav>
+    <header>
+    <div class="content column is-half is-offset-one-third" id="questions">
+        <h1 class="is-large">Welcome, User!</h1>
+        <h3>What type of game would you like to play?</h3>
+        <h3>How many people are in your party?</h3>
+    </div>
+    </header>
+
+    <div class="columns is-flex is-flex-direction-row">
+
+
+    <div class="columns is-flex is-flex-direction-row">
+        <div class="column is-mobile">
+            <div class="card m-6" style="width: 18rem;">
+                <header class="card-header has-background-primary">
+                    <button class="card-header-icon" aria-label="more options">
+                        <span class="icon">
+                            <i class="fas fa-dice-d20 fa-xl" aria-hidden="true"></i>
+                        </span>
+                        <p class="card-header-title subtitle has-text-centered" id="#gameTitle">
+                            Game Title
+                        </p>
+                    </button>
+                </header>
+                <div class="card-content" style=" border-style: solid;">
+                    <div class="content">
+                        <h5 class="has-text-centered" id="#gameType">Game Type</h5>
+                        <li id="gamePlayers">Players: 1-4</li>
+                        <li id="gameLength">Game Length: (Short, Med, Long)</li>
+                        <p id="#gameDesc">Short Description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
+                            voluptates et dolores cum nobis nihil obcaecati eius consequuntur delectus? Dignissimos
+                            asperiores provident architecto quam dicta illo veritatis fuga!</p>
+                    </div>
+                </div>
+                <footer class="card-footer">
+                    <a href="#" class="card-footer-item is-outlined">Favorite</a>
+                    <a href="#" class="card-footer-item">Remove</a>
+                </footer>
+            </div>
+        </div>
+
     
+    
+    </div>
+
+
+
+    <footer class="footer has-text-right">
+    </footer>
 </body>
 </html>
