@@ -1,0 +1,37 @@
+    {{!-- When they render this homepage, generate 8 random cards, use each helper --}}
+
+    {{!-- Now, use each helper to iterate over the data that is sent from the back end route --}}
+    {{!-- put the outer divs that need to wrap the cards here  --}}
+        <div class="columns">
+        <div class="column is-mobile">
+    {{#each}}
+    {{!-- put card generation html --}}
+    {{!-- on server side, pull first 5 games to return --}}
+    {{!--  --}}
+                <div class="card m-6" style="width: 18rem;">
+                <header class="card-header has-background-primary">
+                    <button class="card-header-icon" aria-label="more options">
+                        <span class="icon">
+                            <i class="fas fa-dice-d20 fa-xl" aria-hidden="true"></i>
+                        </span>
+                    <p class="card-header-title subtitle has-text-centered" id="#gameTitle">
+                        {{gameTitle}}
+                    </p>
+                    </button>
+                </header>
+                <div class="card-content" style=" border-style: solid;">
+                    <div class="content">
+                        <h5 class="has-text-centered" id="#gameType">{{gameType}}</h5>
+                        <li id="gamePlayers">Players: 1-4</li>
+                        <li id="gameLength">Game Length: (Short, Med, Long)</li>
+                        <p id="#gameDesc">Short Description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero voluptates et dolores cum nobis nihil obcaecati eius consequuntur delectus? Dignissimos asperiores provident architecto quam dicta illo veritatis fuga!</p>
+                    </div>
+                </div>
+                <footer class="card-footer">
+                    <a href="#" class="card-footer-item is-outlined">Favorite</a>
+                    <a href="#" class="card-footer-item">Remove</a>
+                </footer>
+            </div>
+    {{/each}}
+    </div>
+    </div>d
