@@ -5,11 +5,11 @@ const Games = require("./Games");
 
 // foreignKey coming from Games.js
 Games.belongsTo(User, {
-  foreignKey: "gameId",
+  foreignKey: "userId",
 });
 
 User.hasMany(Games, {
-  foreignKey: "gameId",
+  foreignKey: "userId",
 });
 
 module.exports = { User, Games };

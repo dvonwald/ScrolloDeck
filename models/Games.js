@@ -17,19 +17,27 @@ Games.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    gameLength: {
+    minGameLength: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    numberOfPlayers: {
+    maxGameLength: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    minNumberOfPlayers: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    maxNumberOfPlayers: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     gameDescription: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true,
     },
-    gameId: {
+    userId: {
       type: DataTypes.INTEGER,
       references: {
         model: "User",
@@ -40,7 +48,6 @@ Games.init(
   {
     sequelize,
     freezeTableName: true,
-    underscored: true,
     modelName: "Games",
   }
 );

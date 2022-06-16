@@ -34,7 +34,8 @@ const gamesData = [
   {
     gameName: "Lasers and Feelings",
     gameType: "rpg",
-    gameLength: "",
+    minGameLength: 60,
+    maxGameLength: 100,
     minNumberOfPlayers: 1,
     maxNumberOfPlayers: 100,
     gameDescription:

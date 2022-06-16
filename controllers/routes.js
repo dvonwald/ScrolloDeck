@@ -1,7 +1,8 @@
 const router = require("express").Router();
 const path = require("path");
+const { User, Games } = require("../models");
 
-// main route 
+// main route
 router.get("/", async (req, res) => {
   res.sendFile(path.join(__dirname, "../views/index.html"));
 });
@@ -17,15 +18,8 @@ router.get("/api/userdata", async (req, res) => {
 // add user
 router.post("api/users", async (req, res) => {
   console.info(`${req.method} request received to add user.`);
-  const {
-    id,
-    username,
-    password,
-  } = req.body;
-  if (
-    username && 
-    password
-  ) {
+  const { id, username, password } = req.body;
+  if (username && password) {
     const newGame = {
       username,
       password,
@@ -48,7 +42,7 @@ router.get("/api/userdata/:id", async (req, res) => {
   try {
     const userData = await User.findByPk(req.params.id);
     if (!userData) {
-      res.status(404).json({ message: 'No user with this id!' });
+      res.status(404).json({ message: "No user with this id!" });
       return;
     }
     res.status(200).json(userData);
@@ -66,7 +60,7 @@ router.put("/api/userdata/:id", async (req, res) => {
       },
     });
     if (!userData[0]) {
-      res.status(404).json({ message: 'No user with this id!' });
+      res.status(404).json({ message: "No user with this id!" });
       return;
     }
     res.status(200).json(userData);
@@ -84,7 +78,7 @@ router.delete("/api/userdata/:id", async (req, res) => {
       },
     });
     if (!userData) {
-      res.status(404).json({ message: 'No user with this id!' });
+      res.status(404).json({ message: "No user with this id!" });
       return;
     }
     res.status(200).json(userData);
@@ -95,15 +89,18 @@ router.delete("/api/userdata/:id", async (req, res) => {
 
 // get all games
 router.get("/api/gamedata", async (req, res) => {
-  const gameData = await Game.findAll().catch((err) => {
-    res.json(err);
-  });
-  res.json(gameData);
+  try {
+    const gameData = await Games.findAll();
+    res.json(gameData);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 });
 
 // add game
 router.post("/api/games", (req, res) => {
-  console.info(`${req.method} request received to add game.`);
+  console.info(`${req.method} request received to add Games.`);
   const {
     id,
     gameName,
@@ -118,33 +115,33 @@ router.post("/api/games", (req, res) => {
     gameLength &&
     numberOfPlayers &&
     gameDescription
-    ) {
-      const newGame = {
-        gameName,
-        gameType,
-        gameLength,
-        numberOfPlayers,
-        gameDescription,
-      };
-      
-      const response = {
-        status: "Success",
-        body: newGame,
-      };
-      
-      console.log(response);
-      res.status(201).json(response);
-    } else {
-      res.status(500).json("Error in posting game");
-    }
-  });
-  
+  ) {
+    const newGame = {
+      gameName,
+      gameType,
+      gameLength,
+      numberOfPlayers,
+      gameDescription,
+    };
+
+    const response = {
+      status: "Success",
+      body: newGame,
+    };
+
+    console.log(response);
+    res.status(201).json(response);
+  } else {
+    res.status(500).json("Error in posting game");
+  }
+});
+
 // get game by id
 router.get("/api/gamedata/:id", async (req, res) => {
   try {
     const gameData = await User.findByPk(req.params.id);
     if (!gameData) {
-      res.status(404).json({ message: 'No game with this id!' });
+      res.status(404).json({ message: "No game with this id!" });
       return;
     }
     res.status(200).json(gameData);
@@ -156,13 +153,13 @@ router.get("/api/gamedata/:id", async (req, res) => {
 // update game
 router.put("/api/gamedata/:id", async (req, res) => {
   try {
-    const gameData = await Game.update(req.body, {
+    const gameData = await Games.update(req.body, {
       where: {
         id: req.params.id,
       },
     });
     if (!gameData[0]) {
-      res.status(404).json({ message: 'No game with this id!' });
+      res.status(404).json({ message: "No game with this id!" });
       return;
     }
     res.status(200).json(gameData);
@@ -174,13 +171,13 @@ router.put("/api/gamedata/:id", async (req, res) => {
 // delete game
 router.delete("/api/gamedata/:id", async (req, res) => {
   try {
-    const gameData = await Game.destroy({
+    const gameData = await Games.destroy({
       where: {
         id: req.params.id,
       },
     });
     if (!gameData) {
-      res.status(404).json({ message: 'No game with this id!' });
+      res.status(404).json({ message: "No game with this id!" });
       return;
     }
     res.status(200).json(gameData);
