@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { User } = require('../../models');
 
 // current route /api/users
+
 // get all users
 router.get("/", async (req, res) => {
   try {
@@ -38,14 +39,14 @@ router.post('/login', async (req, res) => {
   try {
     const dbUserData = await User.findOne({
       where: {
-        email: req.body.email,
+        username: req.body.username,
       },
     });
 
     if (!dbUserData) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password. Please try again!' });
+        .json({ message: 'Incorrect username or password. Please try again!' });
       return;
     }
 
@@ -54,7 +55,7 @@ router.post('/login', async (req, res) => {
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password. Please try again!' });
+        .json({ message: 'Incorrect username or password. Please try again!' });
       return;
     }
 
