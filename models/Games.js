@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require("sequelize");
-const sequelize = require("../config/connection"); //this may need to change depending on file name
+const sequelize = require("../config/index");
 class Games extends Model {}
 Games.init(
   {
@@ -28,6 +28,13 @@ Games.init(
     gameDescription: {
       type: DataTypes.STRING,
       allowNull: true,
+    },
+    gameId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "User",
+        key: "id",
+      },
     },
   },
   {

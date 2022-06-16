@@ -1,5 +1,4 @@
-//a changed index.js to routes.js under config
-const sequelize = require("../config/routes");
+const sequelize = require("../config/index");
 
 const seedGames = require("./gamesData");
 

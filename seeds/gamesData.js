@@ -61,3 +61,7 @@ const gamesData = [
       "A combination of negotiation & deck-building, Moonrakers is the perfect mix of competition, co-operation, and strategy that leads to unforgettable moments with family & friends.",
   },
 ];
+
+const seedGamesData = () => Games.bulkCreate(gamesData);
+
+module.exports = seedGamesData;

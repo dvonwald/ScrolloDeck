@@ -1,20 +1,15 @@
-// const User = require("./User");
-// const Gallery = require("./Gallery");
-// const Painting = require("./Painting");
+const User = require("./User");
+const Games = require("./Games");
 
-// Gallery.hasMany(Painting, {
-//   foreignKey: "gallery_id",
-// });
+// Associations
 
-// Painting.belongsTo(Gallery, {
-//   foreignKey: "gallery_id",
-// });
+// foreignKey coming from Games.js
+Games.belongsTo(User, {
+  foreignKey: "gameId",
+});
 
-// module.exports = { User, Gallery, Painting };
-// -Game type? RPG, card games, and board games,
-//     -How many people can play this game ?
-//     -Game description
-//     - how long will this game take ?
+User.hasMany(Games, {
+  foreignKey: "gameId",
+});
 
-//         game will belong to User
-// user can create many games
+module.exports = { User, Games };
