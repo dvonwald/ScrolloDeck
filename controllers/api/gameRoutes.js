@@ -1,11 +1,14 @@
 const router = require('express').Router();
 const { Games } = require('../../models');
+
 // current path /api/games
+
 // get all games
 router.get("/", async (req, res) => {
   try {
     const gameData = await Games.findAll();
-    res.json(gameData);
+    const games = gameData.map((game) => game.get({plain: true}))
+    res.render("homepage", {games});
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -18,8 +21,10 @@ router.post("/addgame", (req, res) => {
   Games.create({
     gameName: req.body.gameName,
     gameType: req.body.gameType,
-    gameLength: req.body.gameLength,
-    numberOfPlayers: req.body.numberOfPlayers,
+    maxGameLength: req.body.maxGameLength,
+    minGameLength: req.body.minGameLength,
+    maxNumberOfPlayers: req.body.maxNumberOfPlayers,
+    minNumberOfPlayers: req.body.minNumberOfPlayers,
     gameDescription: req.body.gameDescription,
     })
         .then((newGame) => {
@@ -33,7 +38,7 @@ router.post("/addgame", (req, res) => {
 // get game by id
 router.get("/gamedata/:id", async (req, res) => {
   try {
-    const gameData = await User.findByPk(req.params.id);
+    const gameData = await Games.findByPk(req.params.id);
     if (!gameData) {
       res.status(404).json({ message: "No game with this id!" });
       return;
