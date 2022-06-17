@@ -1,4 +1,5 @@
-const router = require('express').Router();
+const router = require("express").Router();
+const { Games, User } = require("../models");
 
 // main route
 router.get("/", async (req, res) => {
@@ -6,4 +7,3 @@ router.get("/", async (req, res) => {
 });
 
 module.exports = router;
-
