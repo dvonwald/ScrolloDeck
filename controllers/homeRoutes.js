@@ -12,6 +12,10 @@ router.get("/", async (req, res) => {
     res.status(500).json(err);
   }
 });
+// route render add game
+router.get("/addgame", async (req, res) => {
+  res.render("addGames");
+});
 // route rendered for login
 router.get("/login", async (req, res) => {
   res.render("login");
