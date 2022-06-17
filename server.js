@@ -12,7 +12,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 // Set up sessions with cookies
 const sess = {
-  secret: process.env.SECRET,
+  secret: "pikachu",
   cookie: {
     // Stored in milliseconds (86400 === 1 day)
     maxAge: 86400,
