@@ -23,15 +23,15 @@
                         </div>
                         <div class="title has-text-black is-5">Please enter your email and password.</div>
                     </div>
-                    <form>
+                    <form class="login-form">
                         <div class="field">
                             <div class="control">
-                                <input class="input is-large" type="email" placeholder="Email" autofocus="">
+                                <input class="input is-large" id="username" type="text" placeholder="Username" autofocus="">
                             </div>
                         </div>
                         <div class="field">
                             <div class="control">
-                                <input class="input is-large" type="password" placeholder="Password">
+                                <input class="input is-large" type="password" placeholder="Password" id="password">
                             </div>
                         </div>
                     </form>
@@ -39,7 +39,7 @@
                         <input type="checkbox">
                         Remember me
                     </label>
-                    <button class="button is-block is-danger is-large is-fullwidth has-background-primary">Login</button>
+                    <button class="button is-block is-danger is-large is-fullwidth has-background-primary" type="submit">Login</button>
                     <p class="has-text-white is-size-5" style="line-height: 70px;">
                         <a href="./signup.html">Sign Up</a>
                     </p>
@@ -48,7 +48,7 @@
         </div>
     </div>
   
-  
-</body>
+  <script src="/js/login.js"></script>
+</body >
 
 </html>
