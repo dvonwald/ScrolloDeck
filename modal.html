@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+</head>
+<body>
+    <div class="container" id="app">
+        <div id="image-modal" class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+                <div class="modal-card">
+                    <header class="modal-card-head">
+                        <p class="modal-card-title">Design your game below!</p>
+                    </header>
+                    <section class="modal-card-body">
+                        <div class="dropdown is-active">
+                            <h3>How many players would you like to include?</h3>
+                            <div class="dropdown-trigger">
+                                <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                                    <span>Number of Players</span>
+                                    <span class="icon is-small">
+                                        <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                                <div class="dropdown-content">
+                                    <a href="#" class="dropdown-item">
+                                        2
+                                    </a>
+                                    <a class="dropdown-item">
+                                        3
+                                    </a>
+                                    <a href="#" class="dropdown-item is-active">
+                                        4
+                                    </a>
+                                    <a href="#" class="dropdown-item">
+                                        5
+                                    </a>
+                                </div>
+                            </div>
+                            <h3>How long would you like the game to be?</h3>
+                            <div class="dropdown-trigger">
+                                <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                                    <span>Game Length</span>
+                                    <span class="icon is-small">
+                                        <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                                <div class="dropdown-content">
+                                    <a href="#" class="dropdown-item">
+                                        Short
+                                    </a>
+                                    <a class="dropdown-item">
+                                        Medium
+                                    </a>
+                                    <a href="#" class="dropdown-item is-active">
+                                        Long
+                                    </a>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <h3>Add a description below!</h3>
+                        <textarea name="game-description-field" id="game-description" cols="30" rows="10"></textarea>
+                    
+
+                    </section>
+                    <footer class="modal-card-foot">
+                        <button class="button is-success">Create game!</button>
+                    </footer>
+                </div>
+            </div>
+            <button id="image-modal-close" class="modal-close"></button>
+        </div>
+        <br>
+        <button class="button" id="showModal">Show</button>
+    </div>
+    <script type="text/javascript">
+        var btn = document.querySelector('#showModal');
+            var modalDlg = document.querySelector('#image-modal');
+            var imageModalCloseBtn = document.querySelector('#image-modal-close');
+            btn.addEventListener('click', function () {
+                modalDlg.classList.add('is-active');
+            });
+
+    </script>
+</body>
+</html>
