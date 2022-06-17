@@ -45,7 +45,7 @@ document
   .querySelector(".login-form")
   .addEventListener("submit", loginFormHandler);
 
-// need to change below
+// need to change below-- i dont i need this bc i have this in my signUp.js
 document
   .querySelector(".signup-form")
   .addEventListener("submit", signupFormHandler);

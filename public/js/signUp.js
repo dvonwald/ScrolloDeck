@@ -1,10 +1,10 @@
 const signupFormHandler = async function (event) {
   event.preventDefault();
 
-  const usernameEl = document.querySelector("#username-input-signup");
-  const passwordEl = document.querySelector("#password-input-signup");
-
-  const response = await fetch("/api/user", {
+  const username = document.querySelector("#username").value.trim();
+  const password = document.querySelector("#password").value.trim();
+  // do we have a signup in routes, i think userRoutes.js
+  const response = await fetch("/api/user/signup", {
     method: "POST",
     body: JSON.stringify({
       username: usernameEl.value,
