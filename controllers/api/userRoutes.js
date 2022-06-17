@@ -1,16 +1,21 @@
 const router = require("express").Router();
 const { User } = require("../../models");
 
+// current route /api/users
+
 // get all users
-router.get("/api/userdata", async (req, res) => {
-  const userData = await User.findAll().catch((err) => {
-    res.json(err);
-  });
-  res.json(userData);
+router.get("/", async (req, res) => {
+  try {
+    const userData = await User.findAll();
+    res.json(userData);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 });
 
 // add user
-router.post("api/users", async (req, res) => {
+router.post("/adduser", async (req, res) => {
   console.info(`${req.method} request received to add user.`);
   try {
     const dbUserData = await User.create({
@@ -34,14 +39,14 @@ router.post("/login", async (req, res) => {
   try {
     const dbUserData = await User.findOne({
       where: {
-        email: req.body.email,
+        username: req.body.username,
       },
     });
 
     if (!dbUserData) {
       res
         .status(400)
-        .json({ message: "Incorrect email or password. Please try again!" });
+        .json({ message: "Incorrect username or password. Please try again!" });
       return;
     }
 
@@ -50,7 +55,7 @@ router.post("/login", async (req, res) => {
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: "Incorrect email or password. Please try again!" });
+        .json({ message: "Incorrect username or password. Please try again!" });
       return;
     }
 
@@ -83,7 +88,7 @@ router.post("/logout", (req, res) => {
 });
 
 // get user by id
-router.get("/api/userdata/:id", async (req, res) => {
+router.get("/userdata/:id", async (req, res) => {
   try {
     const userData = await User.findByPk(req.params.id);
     if (!userData) {
@@ -97,7 +102,7 @@ router.get("/api/userdata/:id", async (req, res) => {
 });
 
 // update user
-router.put("/api/userdata/:id", async (req, res) => {
+router.put("/userdata/:id", async (req, res) => {
   try {
     const userData = await User.update(req.body, {
       where: {
@@ -115,7 +120,7 @@ router.put("/api/userdata/:id", async (req, res) => {
 });
 
 // delete user
-router.delete("/api/userdata/:id", async (req, res) => {
+router.delete("/userdata/:id", async (req, res) => {
   try {
     const userData = await User.destroy({
       where: {
