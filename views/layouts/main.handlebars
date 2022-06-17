@@ -43,6 +43,9 @@
                     <a class="button is-danger">
                         Log in
                     </a>
+                    <a class="button is-danger">
+                        Log Out
+                    </a>
                     <button class="button is-link">Add Your Games</button>
             </div>
         </nav>
@@ -52,58 +55,26 @@
             <h1 class="is-large">Welcome, Players!</h1>
             <h3>What type of game would you like to play?</h3>
     <!-- Drop Down for Game Type -->
-            <div class="dropdown is-active">
-                <div class="dropdown-trigger">
-                    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-                        <span>Game Type</span>
-                        <span class="icon is-small">
-                            <i class="fas fa-angle-down" aria-hidden="true"></i>
-                        </span>
-                    </button>
-                </div>
-                <div class="dropdown-menu" id="dropdown-menu" role="menu">
-                    <div class="dropdown-content">
-                        <a href="#" class="dropdown-item">
-                            Role-Playing Game
-                        </a>
-                        <a class="dropdown-item">
-                            Board Game
-                        </a>
-                        <a href="#" class="dropdown-item is-active">
-                            Card Game
-                        </a>
-                    </div>
-                </div>
-            </div>
+
+    <div class="select">
+        <select>
+            <option>Role-Playing Game</option>
+            <option>Board Game</option>
+            <option>Card Game</option>
+        </select>
+    </div>
+
             
         <h3>How many people are in your party?</h3>
     <!-- Drop Down for Numer of Players -->
-        <div class="dropdown is-active">
-            <div class="dropdown-trigger">
-                <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-                    <span>Number of Players</span>
-                    <span class="icon is-small">
-                        <i class="fas fa-angle-down" aria-hidden="true"></i>
-                    </span>
-                </button>
-            </div>
-            <div class="dropdown-menu" id="dropdown-menu" role="menu">
-                <div class="dropdown-content">
-                    <a href="#" class="dropdown-item">
-                        2
-                    </a>
-                    <a class="dropdown-item">
-                        3
-                    </a>
-                    <a href="#" class="dropdown-item is-active">
-                        4
-                    </a>
-                    <a href="#" class="dropdown-item">
-                        5
-                    </a>
-                </div>
-            </div>
-        </div>
+        <div class="select">
+            <select>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+</div>
     </div>
     </header>
 {{{body}}}
