@@ -6,6 +6,7 @@ const { Games } = require('../../models');
 // add game
 router.post("/addgame", (req, res) => {
   console.info(`${req.method} request received to add Games.`);
+  console.log(req.body);
   Games.create({
     gameName: req.body.gameName,
     gameType: req.body.gameType,
