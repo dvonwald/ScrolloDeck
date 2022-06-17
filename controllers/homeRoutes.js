@@ -12,5 +12,13 @@ router.get("/", async (req, res) => {
     res.status(500).json(err);
   }
 });
+// route rendered for login
+router.get("/login", async (req, res) => {
+  res.render("login");
+});
+// route rendered for signup
+router.get("/signup", async (req, res) => {
+  res.render("signup");
+});
 
 module.exports = router;
