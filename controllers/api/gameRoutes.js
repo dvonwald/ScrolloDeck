@@ -55,6 +55,44 @@ router.put("/gamedata/:id", async (req, res) => {
   }
 });
 
+// filter games
+router.get("/search/:filter/:value/:filter2/:value2", async (req, res) => {
+  const {filter, value, filter2, value2} = req.params;
+  const filterObject = {}
+  if (filter && !filter2){
+    if (filter === "numberOfPlayers"){
+      filterObject.maxNumberOfPlayers = {[Op.lte]: value};
+      filterObject.minNumberOfPlayers = {[Op.gte]: value};
+    }
+    if (filter === "gameType"){
+      filterObject.gameType = value;
+    }
+  }
+  else if (filter && filter2) {
+    filterObject.maxNumberOfPlayers = {[Op.lte]: value};
+    filterObject.minNumberOfPlayers = {[Op.gte]: value};
+    filterObject.gameType = value2;
+  }
+  try{
+    const gameData = await Games.findAll({
+      where: filterObject
+    });
+    if (!gameData[0]) {
+      res.status(404).json({ message: "No game with these parameters!" });
+      return;
+    }
+    const games = gameData.map(game => {
+      return game.get({
+        plain: true
+      })
+    })
+    console.log(games);
+    res.status(200).json(games);
+  } catch {
+    res.status(500).json(err);
+  }
+})
+
 // delete game
 router.delete("/gamedata/:id", async (req, res) => {
   try {
