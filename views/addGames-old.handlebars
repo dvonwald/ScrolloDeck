@@ -1,0 +1,57 @@
+<form action="/api/games/addgame" method="POST">
+    <div class="container" id="app">
+        <div id="image-modal" class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+                <div class="modal-card">
+                    <header class="modal-card-head">
+                        <p class="modal-card-title">Design your game below!</p>
+                    </header>
+                    <section class="modal-card-body">
+                        <div class="dropdown is-active">
+                            <h3>What is the name of your game?</h3>
+                            <div class="input" type="text" id="game-name">Game Name
+                            </div>
+                            <h3>What type of game is it?</h3>
+                            <div class="select">
+                                <select name="Game Type" id="">
+                                    <option value="rpg">RPG</option>
+                                    <option value="card">Card Game</option>
+                                    <option value="board">Board Game</option>
+                                </select>
+                            </div>
+                            <h3>How long would you like the game to be?</h3>
+                            <div class="input" type="text" id="max-game-length">Maximum Game Length in minutes.
+                            </div>
+                            <div class="input" type="text" id="min-game-length">Minimum Game Length in minutes.
+                            </div>
+                            <h3>How many players can play it?</h3>
+                            <div class="input" type="text" id="max-game-length">Maximum Number of players.
+                            </div>
+                            <div class="input" type="text" id="min-game-length">Minimum Game Length in minutes.
+                            </div>
+                            <h3>Add a description below!</h3>
+                            <textarea name="game-description-field" id="game-description" cols="30"
+                                rows="10"></textarea>
+                        </div>
+                    </section>
+                </div>
+            </div>
+</div>
+            <footer class="modal-card-foot">
+                <button class="button is-success">Create game!</button>
+            </footer>
+</form>
+<button id="image-modal-close" class="modal-close"></button>
+<br>
+<button class="button" id="showModal">Show</button>
+</div>
+<script type="text/javascript">
+    var btn = document.querySelector('#showModal');
+    var modalDlg = document.querySelector('#image-modal');
+    var imageModalCloseBtn = document.querySelector('#image-modal-close');
+    btn.addEventListener('click', function () {
+        modalDlg.classList.add('is-active');
+    });
+
+</script>
