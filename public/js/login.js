@@ -1,6 +1,8 @@
+console.log("first console log");
+
 const loginFormHandler = async (event) => {
   event.preventDefault();
-
+  console.log("hello");
   const username = document.querySelector("#username").value.trim();
   const password = document.querySelector("#password").value.trim();
 
@@ -14,7 +16,8 @@ const loginFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace("/");
     } else {
-      alert("Failed to log in.");
+      alert(response.message);
+      console.log(response.message);
     }
   }
 };
@@ -44,8 +47,3 @@ const signupFormHandler = async (event) => {
 document
   .querySelector(".login-form")
   .addEventListener("submit", loginFormHandler);
-
-// need to change below-- i dont i need this bc i have this in my signUp.js
-document
-  .querySelector(".signup-form")
-  .addEventListener("submit", signupFormHandler);
