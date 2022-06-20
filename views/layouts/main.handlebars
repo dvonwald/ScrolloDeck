@@ -32,51 +32,26 @@
     <nav class="navbar has-background-info navbar-menu" role="navigation" aria-label="main navigation">
         <div class="navbar-brand navbar-start">
     <!-- SVG logo -->
-            <img src=".ScrolloDeck.svg" alt="ScrolloDeck Logo" width="256px">
+            <img src="../../assets/images/ScrolloDeck.svg" alt="ScrolloDeck Logo" width="256px">
         <div class="navbar-end has-text-right">
     <!-- NavBar Buttons -->
             <div class="navbar-item navbar-end">
                 <div class="buttons">
-                    <a class="button is-success">
+                    <a class="button is-success" href="/signup">
                         <strong>Sign up</strong>
                     </a>
-                    <a class="button is-danger">
+                    <a class="button is-danger" href="/login">
                         Log in
                     </a>
-                    <a class="button is-danger" id="logout">
+                    <a class="button is-danger" id="logout" href="/logout">
                         Log Out
                     </a>
-                    <button class="button is-link">Add Your Games</button>
+                    <a class="button is-link" id="addGames" href="/addGames">
+                        Add Your Games
+                    </a>
             </div>
         </nav>
-    <!-- Welcome Text & Drop Down Selectors -->
-        <header>
-        <div class="content column is-half is-offset-one-third" id="questions">
-            <h1 class="is-large">Welcome, Players!</h1>
-            <h3>What type of game would you like to play?</h3>
-    <!-- Drop Down for Game Type -->
 
-    <div class="select">
-        <select>
-            <option>Role-Playing Game</option>
-            <option>Board Game</option>
-            <option>Card Game</option>
-        </select>
-    </div>
-
-            
-        <h3>How many people are in your party?</h3>
-    <!-- Drop Down for Numer of Players -->
-        <div class="select">
-            <select>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-            </select>
-</div>
-    </div>
-    </header>
 {{{body}}}
 </body>
 
