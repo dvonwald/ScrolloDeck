@@ -1,27 +1,27 @@
-    {{!-- When they render this homepage, generate 5-8 random cards, use each helper --}}
+{{!-- When they render this homepage, generate 5-8 random cards, use each helper --}}
 
-    {{!-- Now, use each helper to iterate over the data that is sent from the back end route --}}
-    {{!-- put the outer divs that need to wrap the cards here  --}}
+{{!-- Now, use each helper to iterate over the data that is sent from the back end route --}}
+{{!-- put the outer divs that need to wrap the cards here --}}
 
 
-    <!-- Welcome Text & Drop Down Selectors -->
-        <header>
-        <div class="content column is-half is-offset-one-third" id="questions">
-            <h1 class="is-size-1" style="font-family: 'Oleo Script', cursive;">Welcome, Players!</h1>
-            <h3 style="font-family: 'Nunito', sans-serif;">What type of game would you like to play?</h3>
-    <!-- Drop Down for Game Type -->
+<!-- Welcome Text & Drop Down Selectors -->
+<header>
+    <div class="content column is-half is-offset-one-third" id="questions">
+        <h1 class="is-size-1" style="font-family: 'Oleo Script', cursive;">Welcome, Players!</h1>
+        <h3 style="font-family: 'Nunito', sans-serif;">What type of game would you like to play?</h3>
+        <!-- Drop Down for Game Type -->
 
-    <div class="select">
-        <select id="gameTypeSelect">
-            <option>Role-Playing Game</option>
-            <option>Board Game</option>
-            <option>Card Game</option>
-        </select>
-    </div>
+        <div class="select">
+            <select id="gameTypeSelect">
+                <option>Role-Playing Game</option>
+                <option>Board Game</option>
+                <option>Card Game</option>
+            </select>
+        </div>
 
-            
+
         <h3 style="font-family: 'Nunito', sans-serif;">How many people are in your party?</h3>
-    <!-- Drop Down for Numer of Players -->
+        <!-- Drop Down for Numer of Players -->
         <div class="select">
             <select id="playerNumSelect">
                 <option>2</option>
@@ -29,19 +29,24 @@
                 <option>4</option>
                 <option>5</option>
             </select>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="button" id="submitButton">
+            Submit
+        </div>
+    </div>
+</header>
+
+
+
+<div class="columns is-mobile is-desktop is-flex flex-wrap is-flex-direction-row is-multiline">
+    {{!-- <div class="column is-mobile"> --}}
+        {{#each games as |game|}}
+        {{!-- put card generation html --}}
+        {{!-- on server side, pull first 5 games to return --}}
+        {{!-- --}}
+        {{>gamedetails}}
+        {{/each}}
+    </div>
 </div>
-    </div>
-    </header>
-
-
-
-        <div class="columns is-mobile is-desktop is-flex flex-wrap is-flex-direction-row is-multiline">
-        {{!-- <div class="column is-mobile"> --}}
-    {{#each games as |game|}}
-    {{!-- put card generation html --}}
-    {{!-- on server side, pull first 5 games to return --}}
-    {{!--  --}}
-    {{>gamedetails}}
-    {{/each}}
-    </div>
-    </div>
