@@ -25,6 +25,12 @@ npm i
 
 ### Usage
 
+Original Wireframe:
+
+![alt text](/project2-group5/assets/wireframe.png)
+
+Deployed App:
+
 ![alt text](/project2-group5/assets/screencastify.gif)
 
 ### Contributors
