@@ -13,7 +13,7 @@ router.get("/", async (req, res) => {
   }
 });
 // route render add game
-router.get("/addgame", async (req, res) => {
+router.get("/addGames", async (req, res) => {
   res.render("addGames");
 });
 // route rendered for login
