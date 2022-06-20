@@ -3,21 +3,14 @@
 {{!-- Now, use each helper to iterate over the data that is sent from the back end route --}}
 {{!-- put the outer divs that need to wrap the cards here --}}
 
-
-<!-- Welcome Text & Drop Down Selectors -->
-<header>
-    <div class="content column is-half is-offset-one-third" id="questions">
-        <h1 class="is-size-1" style="font-family: 'Oleo Script', cursive;">Welcome, Players!</h1>
-        <h3 style="font-family: 'Nunito', sans-serif;">What type of game would you like to play?</h3>
-        <!-- Drop Down for Game Type -->
-
-        <div class="select">
-            <select id="gameTypeSelect">
-                <option>Role-Playing Game</option>
-                <option>Board Game</option>
-                <option>Card Game</option>
-            </select>
-        </div>
+{{!-- ONLY WHEN THE USER IS LOGGED IN CAN THEY SEE THIS --}}
+    <!-- Welcome Text & Drop Down Selectors -->
+      {{#if loggedIn}}
+        <header>
+        <div class="content column is-half is-offset-one-third" id="questions">
+            <h1 class="is-size-1" style="font-family: 'Oleo Script', cursive;">Welcome, Players!</h1>
+            <h3 style="font-family: 'Nunito', sans-serif;">What type of game would you like to play?</h3>
+    <!-- Drop Down for Game Type -->
 
 
         <h3 style="font-family: 'Nunito', sans-serif;">How many people are in your party?</h3>
@@ -40,6 +33,7 @@
 
 
 
+<<<<<<< HEAD
 <div class="columns is-mobile is-desktop is-flex flex-wrap is-flex-direction-row is-multiline">
     {{!-- <div class="column is-mobile"> --}}
         {{#each games as |game|}}
@@ -50,3 +44,18 @@
         {{/each}}
     </div>
 </div>
+=======
+        <div class="columns is-mobile is-desktop is-flex flex-wrap is-flex-direction-row is-multiline">
+        {{!-- <div class="column is-mobile"> --}}
+    {{#each games as |game|}}
+    {{!-- put card generation html --}}
+    {{!-- on server side, pull first 5 games to return --}}
+    {{>gamedetails}}
+    {{/each}}
+    </div>
+    </div>
+    {{!-- IF USER IS NOT LOGGED IN THEN THIS SHOULD REDIRECT THEM TO LOGIN --}}
+    {{else}}
+    <a href="/login">Please login FIRST before you can help you choose from one of the many tabletop RPGs, card games, or board games in our database.</a>
+    {{/if}}
+>>>>>>> 86ecd7751d985763c04ae003982cd4dbf6321437

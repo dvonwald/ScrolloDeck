@@ -33,26 +33,31 @@
         <div class="navbar-brand navbar-start">
             <!-- SVG logo -->
             <img src="../../assets/images/ScrolloDeck.svg" alt="ScrolloDeck Logo" width="256px">
-            <div class="navbar-end has-text-right">
-                <!-- NavBar Buttons -->
-                <div class="navbar-item navbar-end">
-                    <div class="buttons">
-                        <a class="button is-success" href="/signup">
-                            <strong>Sign up</strong>
-                        </a>
-                        <a class="button is-danger" href="/login">
-                            Log in
-                        </a>
-                        <a class="button is-danger" id="logout" href="/logout">
-                            Log Out
-                        </a>
-                        <a class="button is-link" id="addGames" href="/addGames">
-                            Add Your Games
-                        </a>
-                    </div>
-    </nav>
+        <div class="navbar-end has-text-right">
+    <!-- NavBar Buttons -->
+            <div class="navbar-item navbar-end">
+                <div class="buttons">
+                    <a class="button is-success" href="/signup">
+                        <strong>Sign up</strong>
+                    </a>
+                    <a class="button is-danger" href="/login">
+                        Log in
+                    </a>
+                    {{!-- might want to add in /logout here, changed it bc route is not working--}}
+                    <a class="button is-danger" id="logout" href="/">
+                        Log Out
+                    </a>
+                    <a class="button is-link" id="addGames" href="/addGames">
+                        Add Your Games
+                    </a>
+            </div>
+        </nav>
 
-    {{{body}}}
+{{{body}}}
+  {{#if loggedIn}}
+  <script src="/project2-group5/public/js/logout.js"></script>
+  {{/if}}
+</body>
 
     <script src="../../public/index.js">
 </body >
