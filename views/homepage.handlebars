@@ -4,23 +4,29 @@
 {{!-- put the outer divs that need to wrap the cards here --}}
 
 {{!-- ONLY WHEN THE USER IS LOGGED IN CAN THEY SEE THIS --}}
-    <!-- Welcome Text & Drop Down Selectors -->
-      {{#if loggedIn}}
-        <header>
-        <div class="content column is-half is-offset-one-third" id="questions">
-            <h1 class="is-size-1" style="font-family: 'Oleo Script', cursive;">Welcome, Players!</h1>
-            <h3 style="font-family: 'Nunito', sans-serif;">What type of game would you like to play?</h3>
-    <!-- Drop Down for Game Type -->
-
+<!-- Welcome Text & Drop Down Selectors -->
+{{#if loggedIn}}
+<header>
+    <div class="content column is-half is-offset-one-third" id="questions">
+        <h1 class="is-size-1" style="font-family: 'Oleo Script', cursive;">Welcome, Players!</h1>
+        <h3 style="font-family: 'Nunito', sans-serif;">What type of game would you like to play?</h3>
+        <!-- Drop Down for Game Type -->
+        <div class="select">
+            <select id="gameTypeSelect">
+                <option value="rpg">Role-Playing Game</option>
+                <option value="board-game">Board Game</option>
+                <option value="card">Card Game</option>
+            </select>
+        </div>
 
         <h3 style="font-family: 'Nunito', sans-serif;">How many people are in your party?</h3>
         <!-- Drop Down for Numer of Players -->
         <div class="select">
             <select id="playerNumSelect">
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
             </select>
         </div>
 
@@ -32,17 +38,19 @@
 </header>
 
 
+<div class="columns is-mobile is-desktop is-flex flex-wrap is-flex-direction-row is-multiline">
+    {{!-- <div class="column is-mobile"> --}}
+        {{#each games as |game|}}
+        {{!-- put card generation html --}}
+        {{!-- on server side, pull first 5 games to return --}}
+        {{>gamedetails}}
+        {{/each}}
+    </div>
+</div>
+{{!-- IF USER IS NOT LOGGED IN THEN THIS SHOULD REDIRECT THEM TO LOGIN --}}
+{{else}}
+<a href="/login">Please login FIRST before you can help you choose from one of the many tabletop RPGs, card games, or
+    board games in our database.</a>
+{{/if}}
 
-        <div class="columns is-mobile is-desktop is-flex flex-wrap is-flex-direction-row is-multiline">
-        {{!-- <div class="column is-mobile"> --}}
-    {{#each games as |game|}}
-    {{!-- put card generation html --}}
-    {{!-- on server side, pull first 5 games to return --}}
-    {{>gamedetails}}
-    {{/each}}
-    </div>
-    </div>
-    {{!-- IF USER IS NOT LOGGED IN THEN THIS SHOULD REDIRECT THEM TO LOGIN --}}
-    {{else}}
-    <a href="/login">Please login FIRST before you can help you choose from one of the many tabletop RPGs, card games, or board games in our database.</a>
-    {{/if}}
+<script src="/index.js"></script>
