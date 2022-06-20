@@ -43,7 +43,8 @@
                     <a class="button is-danger" href="/login">
                         Log in
                     </a>
-                    <a class="button is-danger" id="logout" href="/logout">
+                    {{!-- might want to add in /logout here, changed it bc route is not working--}}
+                    <a class="button is-danger" id="logout" href="/">
                         Log Out
                     </a>
                     <a class="button is-link" id="addGames" href="/addGames">
@@ -53,6 +54,9 @@
         </nav>
 
 {{{body}}}
+  {{#if loggedIn}}
+  <script src="/project2-group5/public/js/logout.js"></script>
+  {{/if}}
 </body>
 
 </html>

@@ -3,8 +3,9 @@
     {{!-- Now, use each helper to iterate over the data that is sent from the back end route --}}
     {{!-- put the outer divs that need to wrap the cards here  --}}
 
-
+{{!-- ONLY WHEN THE USER IS LOGGED IN CAN THEY SEE THIS --}}
     <!-- Welcome Text & Drop Down Selectors -->
+      {{#if loggedIn}}
         <header>
         <div class="content column is-half is-offset-one-third" id="questions">
             <h1 class="is-size-1" style="font-family: 'Oleo Script', cursive;">Welcome, Players!</h1>
@@ -40,8 +41,11 @@
     {{#each games as |game|}}
     {{!-- put card generation html --}}
     {{!-- on server side, pull first 5 games to return --}}
-    {{!--  --}}
     {{>gamedetails}}
     {{/each}}
     </div>
     </div>
+    {{!-- IF USER IS NOT LOGGED IN THEN THIS SHOULD REDIRECT THEM TO LOGIN --}}
+    {{else}}
+    <a href="/login">Please login FIRST before you can help you choose from one of the many tabletop RPGs, card games, or board games in our database.</a>
+    {{/if}}
