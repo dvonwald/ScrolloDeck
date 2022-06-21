@@ -1,29 +1,23 @@
-const router = require('express').Router();
-const { Games } = require('../../models');
+const router = require("express").Router();
+const { Games } = require("../../models");
 const Sequelize = require("sequelize");
 const Op = Sequelize.Op;
 
 // current path /api/games
 
 // add game
-router.post("/addgame", (req, res) => {
-  console.info(`${req.method} request received to add Games.`);
-  console.log(req.body);
-  Games.create({
-    gameName: req.body.gameName,
-    gameType: req.body.gameType,
-    maxGameLength: req.body.maxGameLength,
-    minGameLength: req.body.minGameLength,
-    maxNumberOfPlayers: req.body.maxNumberOfPlayers,
-    minNumberOfPlayers: req.body.minNumberOfPlayers,
-    gameDescription: req.body.gameDescription,
-    })
-        .then((newGame) => {
-            res.json(newGame)
-        })
-        .catch((err => {
-            res.json(err)
-        }))
+router.post("/addgame", async (req, res) => {
+  try {
+    // console.info(`${req.method} request received to add Games.`);
+    console.log("add game route has been hit");
+    console.log(req.body);
+    const newGameData = await Games.create(req.body);
+    console.log(newGameData);
+    res.json(newGameData);
+  } catch (err) {
+    console.log(err);
+    res.json(err);
+  }
 });
 
 // get game by id
@@ -60,31 +54,31 @@ router.put("/gamedata/:id", async (req, res) => {
 
 // filter games
 router.get("/search/:filter/:value/:filter2/:value2", async (req, res) => {
-  const {filter, value, filter2, value2} = req.params;
-  const filterObject = {}
-    filterObject.maxNumberOfPlayers = {[Op.lte]: value};
-    filterObject.minNumberOfPlayers = {[Op.gte]: value};
-    filterObject.gameType = value2;
+  const { filter, value, filter2, value2 } = req.params;
+  const filterObject = {};
+  filterObject.maxNumberOfPlayers = { [Op.lte]: value };
+  filterObject.minNumberOfPlayers = { [Op.gte]: value };
+  filterObject.gameType = value2;
 
-  try{
+  try {
     const gameData = await Games.findAll({
-      where: filterObject
+      where: filterObject,
     });
     if (!gameData[0]) {
       res.status(404).json({ message: "No game with these parameters!" });
       return;
     }
-    const games = gameData.map(game => {
+    const games = gameData.map((game) => {
       return game.get({
-        plain: true
-      })
-    })
+        plain: true,
+      });
+    });
     res.render("homepage", { games });
     res.status(200).json(games);
   } catch {
     res.status(500).json(err);
   }
-})
+});
 
 // delete game
 router.delete("/gamedata/:id", async (req, res) => {
