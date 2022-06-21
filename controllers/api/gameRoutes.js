@@ -56,7 +56,7 @@ router.put("/gamedata/:id", async (req, res) => {
 router.get("/search/:filter/:value/:filter2/:value2", async (req, res) => {
   const { filter, value, filter2, value2 } = req.params;
   const filterObject = {};
-  filterObject.maxNumberOfPlayers = { [Op.lte]: value };
+  // filterObject.maxNumberOfPlayers = {[Op.lte]: value};
   filterObject.minNumberOfPlayers = { [Op.gte]: value };
   filterObject.gameType = value2;
 
@@ -64,17 +64,19 @@ router.get("/search/:filter/:value/:filter2/:value2", async (req, res) => {
     const gameData = await Games.findAll({
       where: filterObject,
     });
-    if (!gameData[0]) {
-      res.status(404).json({ message: "No game with these parameters!" });
-      return;
-    }
+    // console.log("===========");
+    // console.log(filterObject);
+    // if (!gameData[0]) {
+    //   res.status(404).json({ message: "No game with these parameters!" });
+    //   return;
+    // }
     const games = gameData.map((game) => {
       return game.get({
         plain: true,
       });
     });
-    res.render("homepage", { games });
-    res.status(200).json(games);
+    res.render("homepage", { games, loggedIn: req.session.loggedIn });
+    // res.status(200).json(games);
   } catch {
     res.status(500).json(err);
   }
