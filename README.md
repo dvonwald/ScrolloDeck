@@ -27,11 +27,11 @@ npm i
 
 Original Wireframe:
 
-![alt text](/project2-group5/assets/wireframe.png)
+![alt text](/assets/wireframe.png)
 
 Deployed App: https://dry-crag-90231.herokuapp.com/
 
-![alt text](/project2-group5/assets/screencastify.gif)
+![alt text](/assets/screencastify.gif)
 
 ### Contributors
 
