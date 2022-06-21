@@ -29,7 +29,7 @@ Original Wireframe:
 
 ![alt text](/project2-group5/assets/wireframe.png)
 
-Deployed App:
+Deployed App: https://dry-crag-90231.herokuapp.com/
 
 ![alt text](/project2-group5/assets/screencastify.gif)
 
