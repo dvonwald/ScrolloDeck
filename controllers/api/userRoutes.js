@@ -66,10 +66,10 @@ router.post("/login", async (req, res) => {
         "send ~ file: user-routes.js ~ line 57 ~ req.session.save ~ req.session.cookie",
         req.session.cookie
       );
-
-      res
-        .status(200)
-        .json({ user: dbUserData, message: "You are now logged in!" });
+      res.redirect("/");
+      // res
+      //   .status(200)
+      //   .json({ user: dbUserData, message: "You are now logged in!" });
     });
   } catch (err) {
     console.log(err);
@@ -78,10 +78,12 @@ router.post("/login", async (req, res) => {
 });
 
 // Logout
-router.post("/logout", (req, res) => {
+// route rendered for login
+
+router.get("/logout", (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
-      res.status(204).end();
+      res.redirect("/");
     });
   } else {
     res.status(404).end();

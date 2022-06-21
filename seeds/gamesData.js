@@ -43,7 +43,7 @@ const gamesData = [
   },
   {
     gameName: "Happy Little Dinosaurs",
-    gameType: "board game",
+    gameType: "board-game",
     minGameLength: 30,
     maxGameLength: 60,
     minNumberOfPlayers: 2,
@@ -53,7 +53,7 @@ const gamesData = [
   },
   {
     gameName: "Moonrakers",
-    gameType: "board game",
+    gameType: "board-game",
     minGameLength: 20,
     maxGameLength: 80,
     minNumberOfPlayers: 2,
