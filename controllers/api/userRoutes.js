@@ -17,6 +17,9 @@ router.get("/", async (req, res) => {
 // add user
 router.post("/adduser", async (req, res) => {
   console.info(`${req.method} request received to add user.`);
+  // console.log("===========");
+  // console.log(req.body);
+  // console.log("===========");
   try {
     const dbUserData = await User.create({
       username: req.body.username,
@@ -26,7 +29,8 @@ router.post("/adduser", async (req, res) => {
     req.session.save(() => {
       req.session.loggedIn = true;
 
-      res.status(200).json(dbUserData);
+      // res.status(200).json(dbUserData);
+      res.redirect("/");
     });
   } catch (err) {
     console.log(err);
