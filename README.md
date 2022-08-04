@@ -4,23 +4,28 @@
 
 ## Description
 
--We wanted to create an app that gave the user game choices they can play with their friends depending on the user's search criteria.
+- It can be so difficult to decide what game to play with friends. We wanted to create an app that gave the user game choices they can play with their friends depending on the user's group size.
 
--We learned how to build an entire application both front end and back end using mySQL and Sequelize ORM for the database. We deployed using Heroku. Node.js and Express.js were used to create a RESTful API. Handlebars.js was used as the template engine. Express-session and bcrypt were essential to the authentication on this app as well as capturing cookies.
+- We learned how to build an entire application both front end and back end using mySQL and Sequelize ORM for the database. We deployed using Heroku. Node.js and Express.js were used to create a RESTful API. Handlebars.js was used as the template engine. Express-session and bcrypt were essential to the authentication on this app as well as capturing cookies.
 
 ## Table of Contents
 
+- [Technology-Used](#technology-used)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributors](#contributors)
 - [License](#license)
 
+### Technology Used
+
+Tech Used: mySQL, Sequelize, Express, Bcrypt, HTML, Handlebars, CSS, JavaScript
+
 ### Installation
 
-Node.js, Express, and MySQL and other dependencies are installed by using the following command:
+To run on localhost:
 
 ```md
-npm i
+$ npm i && npm run develop
 ```
 
 ### Usage
@@ -35,11 +40,11 @@ Deployed App: https://dry-crag-90231.herokuapp.com/
 
 ### Contributors
 
-Kristyn Del Campo-Banrevy: https://github.com/MinnieAkuma199 kristyndcb@gmail.com
+Kristyn Del Campo-Banrevy: https://github.com/MinnieAkuma199 & kristyndcb@gmail.com
 
-Dylan Von Wald: https://github.com/dvonwald dylan.vonwald@gmail.com
+Dylan Von Wald: https://github.com/dvonwald & dylan.vonwald@gmail.com
 
-Alex Hageman: https://github.com/ahageman27 ahageman27@gmail.com
+Alex Hageman: https://github.com/ahageman27 & ahageman27@gmail.com
 
 ### License
 

@@ -49,8 +49,18 @@
 </div>
 {{!-- IF USER IS NOT LOGGED IN THEN THIS SHOULD REDIRECT THEM TO LOGIN --}}
 {{else}}
-<a href="/login">Please login FIRST before we can help you choose from one of the many tabletop RPGs, card games, or
-    board games in our database.</a>
+
+<head>
+    <title>Sign up/Log in</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="refresh" content="3; URL=/signup" />
+</head>
+
+<body>
+    <p>Click <a href="/signup">here</a> if you are not redirected in 3s</p>
+</body>
+
+{{!-- <a href="/login"></a> --}}
 {{/if}}
 
 <script src="/index.js"></script>
